@@ -10,6 +10,7 @@ public class Game {
 
 	}
 	private static void play(int rndNumber) {
+		int count = 0;
 		System.out.println("Guess a number between 1 and 100");
 		int guess;
 		Scanner input = new Scanner(System.in);
@@ -18,12 +19,15 @@ public class Game {
 			guess = input.nextInt();
 			if(guess < rndNumber){
 				System.out.println(guess + " is too low. Try again.");
+				count++;
 			}
 			else if(guess > rndNumber){
 				System.out.println(guess + " is too high. Try again.");
+				count++;
 			}
 			else{
 				System.out.println(guess + " is correct! You win!");
+				System.out.println("It only took you " + count + " tries");
 				System.out.println("Would you like to play again (y/n)?");
 				String answer = input.next();
 				if(answer.equals("y")){
